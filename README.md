@@ -1,32 +1,67 @@
-`pip3 install virtualenv` # creates a virtual environment for the project 
+# Installation and Process Instructions
+
+### Creates a virtual environment for the project
+
+`pip3 install virtualenv`
 `mkdir environments`
 `virtualenv django_prototype`
-`source django_prototype/bin/activate` # activare environment
-`pip3 install django` # install django
-`django-admin startproject django_team6_prototype` # make app project
-`python manage.py runserver` # create a server to view the prject in the browser
-`python manage.py startapp project` # creating the actual app
-`python manage.py makemigrations` # creates migrations
-`brew install mysql` # installing mysql using brew
+
+### Activare environment
+
+`source django_prototype/bin/activate`
+
+### Install Django
+
+`pip3 install django`
+
+### Make app project
+
+`django-admin startproject django_team6_prototype`
+
+### Create a server to view the prject in the browser
+
+`python manage.py runserver`
+
+### Creating the actual app
+
+`python manage.py startapp project`
+
+### Creates migrations
+
+`python manage.py makemigrations`
+
+## MySQL set-up process
+
+### Installing mysql using brew
+
+`brew install mysql`
 
 I then installed MySQL Workbench (version 8.0.19)
 
 I created a new schema called team_6 with a user cpintor and password team6 and assigned the user all Administrative Roles and Schema Privilages
 
-`brew services start mysql # start up MySQL service
-`pip install mysqlclient` # installing mysql client within your env directory
+### Start up MySQL service
+
+ `brew services start mysql
+
+### Installing mysql client within your env directory
+
+`pip install mysqlclient`
 
 Chane the Db settings in settings.py from
 
+```sql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+```
 
-to 
+to
 
+```sql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -37,16 +72,34 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+```
 
-`python manage.py migrate` # run a migration, refresh the databse in MySQL WorkBench
+### Run a migration, refresh the databse in MySQL WorkBench
 
-`python manage.py createsuperuser` # creates admin user for web app admin page user: cpintor, pw: team6project
+`python manage.py migrate`
 
-`python manage.py makemigrations` # after creating the post models
+### Creates admin user for web app admin page user: cpintor, pw: team6project
 
-`python manage,py migrate` # to make changes into database
+`python manage.py createsuperuser`
 
-#### part 8 
+### After creating the post models
+
+`python manage.py makemigrations`
+
+### To make changes into database
+
+`python manage,py migrate`
+
+## Part 8
+
+### For images
+
 `pip install pillow` for images
-`python manage.py makemigrations` # run after installing Pillow
-`python manage.py migrate` # to apply changes to our DB
+
+### Run after installing Pillow
+
+`python manage.py makemigrations`
+
+### To apply changes to DB
+
+`python manage.py migrate`
